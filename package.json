@@ -1,0 +1,12 @@
+{
+  "name": "classora",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev:web": "pnpm --filter @classora/web dev",
+    "build:web": "pnpm --filter @classora/web build",
+    "test:web": "pnpm --filter @classora/web test",
+    "lint": "pnpm --filter @classora/web lint"
+  }
+}

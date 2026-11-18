@@ -1,0 +1,26 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install
+      - run: pnpm test:web
+      - run: pnpm lint
+      - run: pnpm build:web
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with: { php-version: '8.5', extensions: 'mbstring, pdo_sqlite, pdo_mysql, xml, ctype, tokenizer' }
+      - run: |
+          cd apps/api
+          composer install --no-interaction
+          cp .env.example .env
+          php artisan key:generate
+          php artisan test

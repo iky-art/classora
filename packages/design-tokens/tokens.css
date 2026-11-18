@@ -1,0 +1,32 @@
+/* Palet Classora (Editorial). Nilai dasar + peran semantik; dark mode lewat [data-theme="dark"]. */
+:root {
+  --ink: #171717;
+  --paper: #f7f6f2;
+  --forest: #315c4c;
+  --stone: #d8d5cc;
+  --ochre: #b78b52;
+
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --muted: #5d5b55;
+  --rule: var(--stone);
+  --surface: #ffffff;
+  --primary: var(--forest);
+  --primary-fg: #ffffff;
+  --accent: var(--ochre);
+  --danger: #9b2c2c;
+  --focus: #1d4ed8;
+}
+
+:root[data-theme="dark"] {
+  --bg: #121412;
+  --fg: #ece9e1;
+  --muted: #a5a299;
+  --rule: #343731;
+  --surface: #1a1d1a;
+  --primary: #79b09a;
+  --primary-fg: #0f1310;
+  --accent: #d2a96a;
+  --danger: #e59a9a;
+  --focus: #8fb3ff;
+}
